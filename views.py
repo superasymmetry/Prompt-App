@@ -87,35 +87,3 @@ def prompt():
         return render_template('form_page.html', response1=completion_text)
     else:
         return render_template("form_page.html")
-
-@views.route('/output', methods = ['POST','GET'])
-def output(user_input):
-    # info = get_prompt_info(title, content)
-    message = 'Translate the following from Mandarin to English'
-    url = "https://api.openai.com/v1/chat/completions"
-    headers = {
-        "Authorization": "Bearer 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",
-        "Content-Type": "application/json"
-    }
-    data = {
-        "messages": [
-            {
-                "content": f"translate the following from mandarin to english:",
-                "role": "user"
-            }
-        ],
-        "model": "gpt-4"
-    }
-    
-    
-    response = requests.get(url, json=data, headers=headers)
-    print(response.json())
-
-
-    # c=pycurl.Curl()
-    # c.setopt(c.URL, 'https://api.openai.com/v1/chat/completions')
-    # post_data = {'field': 'value'}
-    return render_template('output.html', response1=jsonify(response))
-
-
-# curl --location 'https://api.openai.com/v1/chat/completions' \ --header 'Authorization: Bearer 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' \ --header 'Content-Type: application/json' \ --data '{"messages": [{"content": "讲一个故事","role": "user"}],"model": "gpt-4"}'
