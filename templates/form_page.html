@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Enter Request - Prompt Library</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="" />
+    <link rel="icon" href="favicon.png">
+    <link rel="stylesheet" href="/static/prompt.css" />
+
+  </head>
+
+  <nav>
+    <ul>
+      <li>
+        <a class="links" href="{{ url_for ('views.home')}}">Back to Prompt Library</a></li>
+      </li>
+    </ul>
+  </nav>
+
+  <body>
+
+    <h1>Enter something</h1>
+    <div class="container">
+    <div>
+      <form action="#" method="POST">
+        <p>Prompt:</p>
+        <p><input type="text" placeholder="Type something..." name="pr"/></p>
+        <p><input class="submitButton" type="submit"/></p>
+      </form>
+    </div>
+    </div>
+
+    <h1>Output</h1>
+    <p>{{response1}}</p>
+  </body>
+</html>
