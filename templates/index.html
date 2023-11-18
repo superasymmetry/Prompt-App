@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dashboard</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible"
+            content="IE=edge">
+        <meta name="viewport"
+            content="width=device-width,
+                    initial-scale=1.0">
+        <link rel="stylesheet" href="/static/style.css">
+        <script src="/static/dashboard.js" defer></script>
+    </head>
+    <body>
+        <div>
+            <h1 style="align-self: left;">Prompt Library</h1>
+        </div>
+        <div class="block-container">
+        {% block content %}
+            {% for row in rows %}
+            <div class="block">
+                <h2>{{ row[0] }}</h2>
+                <p>{{ row[1] }}</p>
+                <div class="block-arrow">
+                    <a href="{{ url_for ('views.prompt', item=row[0], content=row[1])}}">
+                        <img src="https://ts1.cn.mm.bing.net/th/id/R-C.8030e379ed9a7d7170ad70bc29494138?rik=fPisyI1hN7vDBQ&pid=ImgRaw&r=0" alt="Arrow">
+                    </a >
+                </div>
+            </div>
+            {% endfor %}
+        {% endblock %}
+        </div>
+        <div class="block-container">
+            <a onclick="document.getElementById('id01').style.display='block'"><img src="https://cdn.iconscout.com/icon/free/png-256/free-add-new-1439785-1214356.png?f=webp"></a>
+
+                <div id="id01" class="modal">
+                <span onclick="document.getElementById('id01').style.display='none'"
+                class="close" title="Close Modal">&times;</span>
+
+                <form class="modal-content animate" action="/" method="post">
+                    <p>Add New Prompt</p>
+
+                    <div class="container">
+                    <label for="title"><b>New Title</b></label>
+                    <input type="text" placeholder="Enter title" name="title" required>
+
+                    <label for="des"><b>New Description</b></label>
+                    <input type="text" placeholder="Enter description" name="des" required>
+
+                    <button type="submit">Add</button>
+                    </div>
+
+                    <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                    
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+
+    </body>
+</html>
