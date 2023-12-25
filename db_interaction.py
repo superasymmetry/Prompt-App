@@ -2,16 +2,6 @@ import sqlite3
 from pathlib import Path
 import requests
 
-# Path("database.db").touch()
-
-# conn = sqlite3.connect("database.db")
-# c = conn.cursor()
-# c.execute("CREATE TABLE IF NOT EXISTS database (id INTEGER PRIMARY KEY AUTOINCREMENT, title STRING, content TEXT, message TEXT);")
-# c.execute("INSERT INTO database (title, content, message) VALUES ('Translate', 'from English to Mandarin', 'Translate the following sentence from English to Mandarin.');")
-
-# conn.commit()
-# conn.close()
-
 def modify_user_input(title, content, input):
     conn = sqlite3.connect("database.db")
     c = conn.cursor()
