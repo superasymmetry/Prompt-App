@@ -39,14 +39,6 @@ Slight modification is needed after downloading the code.
     "api_key": "Bearer YOUR_API_KEY"
   }
   ```
-- Modify the file called ```views.py```. Change the following code to include your ```config.json``` file location
-  ```
-  url = "https://api.openai.com/v1/chat/completions"
-  with open(r'YOUR CONFIG FILE LOCATION') as config_file:
-    config = json.load(config_file)
-
-  api_key = config['api_key']
-  ```
 
 ### Executing the program
 
