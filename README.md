@@ -17,6 +17,9 @@ Some example uses:
 * Any operating system
 * Pre-installed packages
   - [Python](https://www.python.org/downloads/)
+
+* Install libraries
+* After installing python, go to the command prompt and enter the following commands
   - Json
 
   ```
