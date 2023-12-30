@@ -20,10 +20,13 @@ def get_prompt_info(title,content):
         return row[2]
     except:
         return False
+
 def add_prompt(tl, content):
     conn = sqlite3.connect("database.db")
     c = conn.cursor()
-    with open(r'C:\Users\2025130\Downloads\Prompt-Library-main\Prompt-Library-main\config.json') as config_file:
+    basedir = os.path.dirname(os.path.abspath(__file__))
+    folder_path = os.path.join(basedir,'config.json')
+    with open((folder_path), "rb") as config_file:
         config = json.load(config_file)
 
     api_key = config['api_key']
