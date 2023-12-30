@@ -59,21 +59,28 @@ def prompt():
         print(request.files)
         pt = request.form["pr"]
 
+        image_flag = 0
         if 'picture' in request.files:
             file = request.files["picture"]
             filename = os.path.join(UPLOAD_FOLDER, file.filename)
             print(f"Saving file as: {filename}")
-            file.save(filename)
+            try:
+                file.save(filename)
+                with open((filename), "rb") as image_file:
+                    encoded_string = base64.b64encode(image_file.read()).decode('utf-8')
+                image_flag = 1
+            except:
+                pass
 
         clicked_item = request.args.get('item')
         content = request.args.get('content')
         message = get_prompt_info(clicked_item,content)
         
-        with open((filename), "rb") as image_file:
-            encoded_string = base64.b64encode(image_file.read()).decode('utf-8')
-
+        
         url = "https://api.openai.com/v1/chat/completions"
-        with open(r'C:\Users\2025130\Downloads\Prompt-Library-main\Prompt-Library-main\config.json') as config_file:
+        basedir = os.path.dirname(os.path.abspath(__file__))
+        folder_path = os.path.join(basedir,'config.json')
+        with open((folder_path), "rb") as config_file:
             config = json.load(config_file)
 
         api_key = config['api_key']
@@ -82,32 +89,41 @@ def prompt():
             "Content-Type": "application/json"
         }
         
-        data = {
-            "model": "gpt-4-vision-preview",
-            "messages": [
-                {
-                    "role": "user",
-                    "content": [
-                        {
-                            "type": "text",
-                            "text": f"{message}:{pt} Here is also a supplemental image."
-                        },
-                        {
-                            "type": "image_url",
-                            "image_url": {
-                                "url": f"data:image/png;base64, {encoded_string}"
+        if image_flag == 1:
+            data = {
+                "model": "gpt-4-vision-preview",
+                "messages": [
+                    {
+                        "role": "user",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": f"{message}:{pt} Here is also a supplemental image."
+                            },
+                            {
+                                "type": "image_url",
+                                "image_url": {
+                                    "url": f"data:image/png;base64, {encoded_string}"
+                                }
                             }
-                        }
-                    ]
-                }
-            ],
-            "max_tokens": 4096
-        }
-        
-        print("reached")
+                        ]
+                    }
+                ],
+                "max_tokens": 4096
+            }
+        else:
+            data = {
+                "messages": [
+                    {
+                        "content": f"{message}:{pt}",
+                        "role": "user"
+                    },
+                ],
+                "model": "gpt-4"
+            }
+
         response = requests.post(url, json=data, headers=headers).json()
         completion_text = response['choices'][0]['message']['content'] 
-        print(completion_text)
 
         return render_template('form_page.html', response1=completion_text)
     else:
