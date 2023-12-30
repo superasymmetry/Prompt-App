@@ -97,3 +97,5 @@ This project is licensed under the [Creative Commons] License - see the LICENSE.
 
 Inspiration
 * [Baidu AI Assistant](https://inspiration.baidu.com/app)
+
+If you would like to contribute to Prompt-App. Please message me or submit a pull request.
