@@ -20,15 +20,18 @@ def get_prompt_info(title,content):
         return row[2]
     except:
         return False
-    
 def add_prompt(tl, content):
     conn = sqlite3.connect("database.db")
     c = conn.cursor()
+    with open(r'C:\Users\2025130\Downloads\Prompt-Library-main\Prompt-Library-main\config.json') as config_file:
+        config = json.load(config_file)
+
+    api_key = config['api_key']
 
     message = "Please engineer a prompt engineering prompt for ChatGPT. Please engineer the prompt based on the following:"
     url = "https://api.openai.com/v1/chat/completions"
     headers = {
-        "Authorization": "Bearer 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",
+        "Authorization": api_key,
         "Content-Type": "application/json"
     }
     data = {
