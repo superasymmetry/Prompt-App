@@ -32,11 +32,11 @@ Some example uses:
 
 Slight modification is needed after downloading the code.
 * Download the project
-* Add a file in the main folder called ```config.json```
-* Add in the following code. Use an API key retrieved from OpenAI
+* Open the file in the main folder called ```config.json```
+* In the following code, change the api to be an API key retrieved from OpenAI.
   ```
   {
-    "api_key": "YOUR API KEY HERE"
+    "api_key": "Bearer YOUR_API_KEY"
   }
   ```
 - Modify the file called ```views.py```. Change the following code to include your ```config.json``` file location
