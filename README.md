@@ -1,11 +1,11 @@
 # Prompt-App
 
-A simple prompt app.
+A simple prompt app. This web app uses large language models to understand your prompts and to generate a valid response. Appropriate for any occasion. 
 
 ## Description
 
 This is a GPT-based prompt app used for inspiration, ideas, and more. You simply enter the task and prompt, and we provide the rest.
-Some example uses:
+Some example uses are:
   - Translate netween languages
   - Generate ideas
   - Re-format essays
@@ -14,8 +14,7 @@ Some example uses:
 
 ### Dependencies
 
-* Any operating system
-* Pre-installed packages
+* First, install python
   - [Python](https://www.python.org/downloads/)
 
 * Install libraries
@@ -33,19 +32,32 @@ Some example uses:
 
 ### Installing
 
-Slight modification is needed after downloading the code.
-* Download the project
-* Open the file in the main folder called ```config.json```
-* In the following code, change the api to be an API key retrieved from OpenAI.
+Download and extract the zip file. Slight modification is needed after downloading the code.
+* Open the ```config.json``` file in the main folder. Edit it with notepad.
+  ![image](https://github.com/superasymmetry/Prompt-App/assets/64930215/03474182-0b2d-46f8-864c-1418bcea668e)
+
+  ![image](https://github.com/superasymmetry/Prompt-App/assets/64930215/0277e049-919d-43a4-a4d0-0ad31a84b9d6)
+
+* In the following code, change the api to be an API key retrieved from OpenAI. (The website to retrieve an api key is https://platform.openai.com/api-keys. If you do not have an OpenAI account, you will need to create one.)
+
   ```
   {
     "api_key": "Bearer YOUR_API_KEY"
   }
   ```
 
-### Executing the program
+### How to use the program
 
-Go to the ```main.py``` file and run. Then go to the localhost link in the terminal. It should be [http://127.0.0.1:8080/](http://127.0.0.1:8080/).
+Open the Command Prompt and cd to your downloaded project's folder location.
+![image](https://github.com/superasymmetry/Prompt-App/assets/64930215/f2ea9773-6754-487c-b744-9f61fa9eac28)
+
+Run the command 
+```
+python main.py
+```
+![image](https://github.com/superasymmetry/Prompt-App/assets/64930215/9d5a43c2-e50a-40cf-adea-a483f92a6d91)
+
+Go to the link [http://127.0.0.1:8080/] in your browser. Voila!
 
 Something similar to this should appear. Note: If it is the first time running your program, the two prompts on this screen will not be there.
 
