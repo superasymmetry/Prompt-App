@@ -73,7 +73,11 @@ Type in what you want the prompt to be.
 
 Click add. Now there should be a new prompt on the screen. Click into it and type in any supplemental messages or attach any images to further describe the prompt. After clicking submit, the output will appear on the screen after several seconds.
 
-![image](https://github.com/superasymmetry/Prompt-App/assets/64930215/5fd1f7f9-0fa5-472c-8786-1aa1403d67af)
+![image](https://github.com/superasymmetry/Prompt-App/assets/64930215/f1b3e041-de21-428e-b6ec-06b3728ce59d)
+
+![image](https://github.com/superasymmetry/Prompt-App/assets/64930215/4e2510d3-a055-43c9-842f-d458fb5184de)
+
+![image](https://github.com/superasymmetry/Prompt-App/assets/64930215/ccbe18c1-1ee0-43e6-ab4d-5a78109a024c)
 
 
 ## Authors & Development
